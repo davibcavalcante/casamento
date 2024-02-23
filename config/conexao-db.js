@@ -1,10 +1,9 @@
 const mongoose = require('mongoose')
+const env = require('dotenv')
 
 const connectDataBase = async () => {
 	try {
-		await mongoose.connect(
-			'mongodb+srv://indigitalDevelopment:indigitalAdmin@cluster0.ykoenvs.mongodb.net/?retryWrites=true&w=majority',
-		)
+		await mongoose.connect(process.env.DB_CONNECTION_STRING)
 		console.log('Conexão com o Banco de dados feita com sucesso')
 	} catch (error) {
 		console.error('\nErro de conexão com o banco de dados!\n', error)
