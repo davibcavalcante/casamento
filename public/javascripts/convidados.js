@@ -33,8 +33,19 @@ const removeGuestById = async (id) => {
     const results = await fetch(req, options)
 
     if (results.status !== 200) {
-        console.log('erro')
+        return false
+    } else {
+        return true
     }
+}
+
+const adjustGuestNumber = () => {
+    const guestArray = document.querySelectorAll('.guest-container')
+    guestArray.forEach((guestContainer, index) => {
+        let numberElement = guestContainer.querySelector('.guest-number')
+        let number = index + 1
+        numberElement.innerText = formatNum(number)
+    })   
 }
 
 const getGuestId = async (method, data) => {
@@ -98,6 +109,7 @@ const guestRemove = (guestElement) => {
         const guestId = await getGuestId('findBy', guestName)
         removeGuestById(guestId)
         guestElement.parentNode.remove()
+        adjustGuestNumber()
         wrapper.classList.add('hidden')
     })
 

@@ -4,8 +4,6 @@ const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const connectDataBase = require('./config/conexao-db')
 
-connectDataBase()
-
 const viewsRouter = require('./routes/views')
 const guestRouter = require('./routes/database')
 
@@ -22,5 +20,6 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', viewsRouter)
 app.use('/database', guestRouter)
+connectDataBase()
 
 module.exports = app

@@ -1,4 +1,4 @@
-const env = require('dotenv')
+const env = require('dotenv').config()
 
 module.exports.authorize = (req, res, next) => {
     const pass = req.params.pass
