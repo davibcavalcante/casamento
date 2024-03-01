@@ -20,6 +20,9 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', viewsRouter)
 app.use('/database', guestRouter)
+app.use('/healthcheck', (req, res) => {
+    res.status(200).send('ok')
+})
 connectDataBase()
 
 module.exports = app
