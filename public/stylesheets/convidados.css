@@ -137,14 +137,14 @@ main {
 .guest-container {
     color: var(--main-dark-color);
     background-color: var(--default-light);
+    margin: 10px 0;
     display: flex;
-    align-items: center;
 }
 
 .guest-container .guest-number {
     font: bold 1.2em var(--main-font);
     width: 50px;
-    height: 50px;
+    min-height: 100%;
 
     border: 2px solid var(--default-dark);
 
@@ -155,11 +155,11 @@ main {
 
 .guest-container .guest-name {
     font: 500 1.2em var(--main-font);
-
+    min-height: 50px;
+    height: auto;
     border: 2px solid var(--default-dark);
     border-left: none;
     padding: 0 10px;
-    height: 50px;
     flex: 1;
 
     display: flex;
